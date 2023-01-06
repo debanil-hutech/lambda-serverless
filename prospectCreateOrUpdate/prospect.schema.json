@@ -1,0 +1,122 @@
+{
+  "type": "object",
+  "properties": {
+    "assignedHelmetNumber": {
+      "type": "integer"
+    },
+    "assignedVehicle_vehicle_id": {
+      "type": "string"
+    },
+    "assignedVehiclePlateNo": {
+      "type": "string"
+    },
+    "assignedVehicleTrim": {
+      "type": "string"
+    },
+    "assignedVehicleType": {
+      "type": "string"
+    },
+    "contractLink": {
+      "type": "string"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "dateAdded": {
+      "type": "string"
+    },
+    "driverExperience": {
+      "type": "string"
+    },
+    "drivingLicense.": {
+      "type": "string"
+    },
+    "drivingLicenseStatus": {
+      "type": "string"
+    },
+    "financierInfo": {
+      "type": "string"
+    },
+    "guarantorAddress": {
+      "type": "string"
+    },
+    "guarantorName": {
+      "type": "string"
+    },
+    "guarantorPhoneNumber": {
+      "type": "string"
+    },
+    "healthInsurance": {
+      "type": "string"
+    },
+    "hpDays": {
+      "type": "integer"
+    },
+    "lastUpdateTime": {
+      "type": "string"
+    },
+    "platformInfo": {
+      "type": "string"
+    },
+    "prospectAddress": {
+      "type": "string"
+    },
+    "prospect_id": {
+      "type": "string"
+    },
+    "prospectLocation": {
+      "type": "string"
+    },
+    "prospectName": {
+      "type": "string"
+    },
+    "prospectPhoneNumber": {
+      "type": "string"
+    },
+    "serviceType": {
+      "type": "string"
+    },
+    "vehicleOfInterest": {
+      "type": "string"
+    },
+    "vehicleOptions": {
+      "type": "string"
+    },
+    "pricingTemplate": {
+      "type": "string"
+    },
+    "messageInfo": {
+      "type": "object",
+      "properties": {
+        "documentStatus": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "documentStatus",
+        "origin"
+      ]
+    }
+  },
+  "required": [
+    "createdTime",
+    "dateAdded",
+    "driverExperience",
+    "guarantorAddress",
+    "guarantorName",
+    "guarantorPhoneNumber",
+    "lastUpdateTime",
+    "platformInfo",
+    "prospectAddress",
+    "prospect_id",
+    "prospectLocation",
+    "prospectName",
+    "prospectPhoneNumber",
+    "vehicleOfInterest",
+    "vehicleOptions",
+    "messageInfo"
+  ]
+}

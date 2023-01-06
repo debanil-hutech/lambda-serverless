@@ -1,0 +1,28 @@
+{
+   "EXCEPTION_SNS":"arn:aws:sns:eu-west-2:048464312507:Exception",
+   "MONGODB":"mongodb+srv://debanil:d3b%400_db@london-cluster-vams.wia8y.mongodb.net/vams?retryWrites=true&w=majority",
+   "AWS_REGION_CUSTOM":"eu-west-2",
+   "VEHICLE_SNS":"arn:aws:sns:eu-west-2:048464312507:Vehicle",
+   "PROSPECT_SNS":"arn:aws:sns:eu-west-2:048464312507:Prospect",
+   "REMINDEREMAIL_SNS":"arn:aws:sns:eu-west-2:048464312507:ReminderEmail"
+}
+
+
+aws lambda update-function-configuration --function-name cancelActivation --environment "Variables={
+   "EXCEPTION_SNS"="arn:aws:sns:eu-west-2:048464312507:Exception",
+   "AWS_REGION_CUSTOM"="eu-west-2",
+   "VEHICLE_SNS"="arn:aws:sns:eu-west-2:048464312507:Vehicle",
+   "PROSPECT_SNS"="arn:aws:sns:eu-west-2:048464312507:Prospect",
+   "REMINDEREMAIL_SNS"="arn:aws:sns:eu-west-2:048464312507:ReminderEmail",
+   "MONGODB"='mongodb+srv://debanil:d3b%400_db@london-cluster-vams.wia8y.mongodb.net/vams?retryWrites=true&w=majority'
+}"
+
+PROD
+aws lambda update-function-configuration --function-name cancelActivation --environment "Variables={
+   "EXCEPTION_SNS"="arn:aws:sns:eu-west-2:616626909445:Exception",
+   "AWS_REGION_CUSTOM"="eu-west-2",
+   "VEHICLE_SNS"="arn:aws:sns:eu-west-2:616626909445:Vehicle",
+   "PROSPECT_SNS"="arn:aws:sns:eu-west-2:616626909445:Prospect",
+   "REMINDEREMAIL_SNS"="arn:aws:sns:eu-west-2:616626909445:ReminderEmail",
+   "MONGODB"='mongodb+srv://MaxDrive_User2:maxdrive123@london-cluster-vams.xkxgb.mongodb.net/vams?retryWrites=true&w=majority'
+}"

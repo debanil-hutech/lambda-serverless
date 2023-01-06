@@ -1,0 +1,156 @@
+{
+  "StartAt": "Movement",
+  "States": {
+    "Movement": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:eu-west-2:616626909445:function:movement",
+      "OutputPath": "$",
+      "Parameters": {
+        "$": "$",
+        "FunctionName": "arn:aws:lambda:eu-west-2:616626909445:function:movement:$LATEST",
+        "Payload": {
+          "callback": "true"
+        }
+      },
+      "Next": "Map"
+    },
+    "Map": {
+      "Type": "Map",
+      "InputPath": "$.allDocument",
+      "ResultPath": "$.allDocument.array",
+      "ItemProcessor": {
+        "ProcessorConfig": {
+          "Mode": "INLINE"
+        },
+        "StartAt": "Choice",
+        "States": {
+          "Choice": {
+            "Type": "Choice",
+            "Choices": [
+              {
+                "Variable": "$.movementType",
+                "StringEquals": "PickUp",
+                "Next": "PickUp"
+              },
+              {
+                "Variable": "$.movementType",
+                "StringEquals": "CheckIn",
+                "Next": "CheckIn"
+              },
+              {
+                "Variable": "$.movementType",
+                "StringEquals": "CheckOut",
+                "Next": "CheckOut"
+              },
+              {
+                "Variable": "$.movementType",
+                "StringEquals": "InitiateTransfer",
+                "Next": "InitiateTransfer"
+              },
+              {
+                "Variable": "$.movementType",
+                "StringEquals": "AcceptTransfer",
+                "Next": "AcceptOrRejectTransfer"
+              }
+            ]
+          },
+          "PickUp": {
+            "Type": "Task",
+            "Resource": "arn:aws:lambda:eu-west-2:616626909445:function:pickUpVehicle",
+            "End": true,
+            "Retry": [
+              {
+                "ErrorEquals": [
+                  "States.TaskFailed",
+                  "Lambda.TooManyRequestsException"
+                ],
+                "BackoffRate": 1,
+                "IntervalSeconds": 6,
+                "MaxAttempts": 2
+              }
+            ]
+          },
+          "CheckIn": {
+            "Type": "Task",
+            "Resource": "arn:aws:lambda:eu-west-2:616626909445:function:checkInVehicle",
+            "End": true,
+            "Retry": [
+              {
+                "ErrorEquals": [
+                  "States.TaskFailed",
+                  "Lambda.TooManyRequestsException"
+                ],
+                "BackoffRate": 1,
+                "IntervalSeconds": 6,
+                "MaxAttempts": 2
+              }
+            ]
+          },
+          "CheckOut": {
+            "Type": "Task",
+            "Resource": "arn:aws:lambda:eu-west-2:616626909445:function:checkOutVehicle",
+            "End": true,
+            "Retry": [
+              {
+                "ErrorEquals": [
+                  "States.TaskFailed",
+                  "Lambda.TooManyRequestsException"
+                ],
+                "BackoffRate": 1,
+                "IntervalSeconds": 6,
+                "MaxAttempts": 2
+              }
+            ]
+          },
+          "InitiateTransfer": {
+            "Type": "Task",
+            "Resource": "arn:aws:lambda:eu-west-2:616626909445:function:initiateTransferVehicle",
+            "End": true,
+            "Retry": [
+              {
+                "ErrorEquals": [
+                  "States.TaskFailed",
+                  "Lambda.TooManyRequestsException"
+                ],
+                "BackoffRate": 1,
+                "IntervalSeconds": 6,
+                "MaxAttempts": 2
+              }
+            ]
+          },
+          "AcceptOrRejectTransfer": {
+            "Type": "Task",
+            "Resource": "arn:aws:lambda:eu-west-2:616626909445:function:acceptOrRejectTransfer",
+            "End": true,
+            "Retry": [
+              {
+                "ErrorEquals": [
+                  "States.TaskFailed",
+                  "Lambda.TooManyRequestsException"
+                ],
+                "BackoffRate": 1,
+                "IntervalSeconds": 6,
+                "MaxAttempts": 2
+              }
+            ]
+          }
+        }
+      },
+      "ItemsPath": "$.array",
+      "MaxConcurrency": 100,
+      "End": true,
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "States.TaskFailed",
+            "Lambda.TooManyRequestsException"
+          ],
+          "BackoffRate": 1,
+          "IntervalSeconds": 6,
+          "MaxAttempts": 2
+        }
+      ]
+    }
+  },
+  "Comment": "Step Function to execute vehicle movement"
+}

@@ -1,0 +1,143 @@
+{
+  "type": "object",
+  "properties": {
+    "OEM_vendorName": {
+      "type": "string"
+    },
+    "SIM_serialNo": {
+      "type": "string"
+    },
+    "VIN": {
+      "type": "string"
+    },
+    "VnubanNumber": {
+      "type": "string"
+    },
+    "chassisNumber": {
+      "type": "string"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "device_IMEI": {
+      "type": "string"
+    },
+    "engineNumber": {
+      "type": "string"
+    },
+    "financierInfo": {
+      "type": "string"
+    },
+    "helmetNumber": {
+      "type": "integer"
+    },
+    "hpDays": {
+      "type": "integer"
+    },
+    "ignitionNumber": {
+      "type": "string"
+    },
+    "lastUpdateTime": {
+      "type": "string"
+    },
+    "mileage": {
+      "type": "number"
+    },
+    "month": {
+      "type": "string"
+    },
+    "odometerReading": {
+      "type": "number"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "plateNumber": {
+      "type": "string"
+    },
+    "platformInfo": {
+      "type": "string"
+    },
+    "pricingTemplate": {
+      "type": "string"
+    },
+    "recieverName": {
+      "type": "string"
+    },
+    "serviceType": {
+      "type": "string"
+    },
+    "vehicleColor": {
+      "type": "string"
+    },
+    "vehicleLocation": {
+      "type": "string"
+    },
+    "vehicleManufacturer": {
+      "type": "string"
+    },
+    "vehicleModel": {
+      "type": "string"
+    },
+    "vehicleStatus": {
+      "type": "string"
+    },
+    "vehicleTrim": {
+      "type": "string"
+    },
+    "vehicleType": {
+      "type": "string"
+    },
+    "year": {
+      "type": "string"
+    },
+    "vehicle_id": {
+      "type": "string"
+    },
+    "champion_id": {
+      "type": "string"
+    },
+    "champion_uuid_id": {
+      "type": "string"
+    },
+    "messageInfo": {
+      "type": "object",
+      "properties": {
+        "documentStatus": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "documentStatus",
+        "origin"
+      ]
+    }
+  },
+  "required": [
+    "OEM_vendorName",
+    "SIM_serialNo",
+    "chassisNumber",
+    "createdTime",
+    "engineNumber",
+    "lastUpdateTime",
+    "mileage",
+    "month",
+    "odometerReading",
+    "phoneNumber",
+    "plateNumber",
+    "platformInfo",
+    "recieverName",
+    "vehicleLocation",
+    "vehicleManufacturer",
+    "vehicleModel",
+    "vehicleStatus",
+    "vehicleTrim",
+    "vehicleType",
+    "year",
+    "vehicle_id",
+    "messageInfo"
+  ]
+}

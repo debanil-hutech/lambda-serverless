@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "champion_id": {
+      "type": "string"
+    },
+    "champion_uuid_id": {
+      "type": "string"
+    },
+    "vehicle_id": {
+      "type": "string"
+    },
+    "prospect_id": {
+      "type": "string"
+    },
+    "lastUpdateTime": {
+      "type": "string"
+    },
+    "messageInfo": {
+      "type": "object",
+      "properties": {
+        "documentStatus": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "documentStatus",
+        "origin"
+      ]
+    }
+  },
+  "required": [
+    "champion_id",
+    "vehicle_id",
+    "prospect_id",
+    "lastUpdateTime",
+    "messageInfo"
+  ]
+}
